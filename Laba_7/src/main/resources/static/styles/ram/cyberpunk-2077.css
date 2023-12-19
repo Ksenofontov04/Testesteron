@@ -1,0 +1,151 @@
+/* cyberpunk-2077.css */
+
+/* createTabulatedFunction.html */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+}
+form{
+    width: fit-content;
+    margin: 10vh auto 0;
+}
+section {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+p{
+    margin: 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+input{
+    width: 200px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    width: 200px;
+}
+.btn:hover {
+     background-color: #45a049;
+ }
+.row{
+    width: fit-content;
+}
+.first-container{
+    display: flex;
+    align-items: center;
+}
+.input-line{
+}
+.cont{
+    width: fit-content;
+}
+.btn-col{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.reset-btn{
+    margin-top: 5px;
+}
+.container_l{
+    display: flex;
+    width: fit-content;
+}
+.buttons{
+    margin-top: 30px;
+}
+.x p{
+    margin-top: 20px;
+}
+.y p{
+    margin-top: 20px;
+}
+.y{
+    margin-left: 50px;
+}
+
+.cont-container{
+    margin-top: 20px;
+}
+.y-title{
+    margin-left: 30px;
+}
+.y-value{
+    margin-left: 30px;
+}
+.notification{
+    margin-top: 35px
+}
+.create-btn{
+    margin-left: 50px;
+}
+
+/* createMathTabulatedFunction.html */
+.create-math-tabulated-function{
+    margin-top: 20vh;
+}
+.flex-line{
+    margin-top: 10px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-container-line{
+    width: fit-content;
+    margin: 20px auto 0;
+}
+.title{
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 20vh;
+}

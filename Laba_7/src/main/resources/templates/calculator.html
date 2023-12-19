@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link th:href="@{/styles/ram/style.css}" rel="stylesheet"/>
+</head>
+<body class="hero">
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+
+<!--<form style = "display: flex;flex-direction: row;" th:action="@{/calculator}" method="post" th:object="${component}">
+    <div style = "display: flex;flex-direction: column;">
+        <div th:object ="${component.oper1}">
+            <div style = "display:flex;flex-direction: row">
+                <div>X</div>
+                <div>Y</div>
+            </div>
+            <div style="display:flex;flex-direction: row" th:each = "i: ${#numbers.sequence(0,component.oper1.getCount()-1,1)}">
+                <div th:text = "${component.oper1.getX(i)}"></div>
+                <div th:text = "${component.oper1.getY(i)}"></div>
+            </div>
+        </div>
+        <div style = "display: flex;flex-direction: column;">
+            <button name = "createFirstFuncTab"><span>Create Tabulated</span></button>
+            <button name = "createFirstFuncMath">Create Math</button>
+            <button name = "saveFirstFunc">Save</button>
+            <button name = "insertFirstFuncMath">Insert</button>
+         </div>
+      </div>
+
+      <div style = "display: flex;flex-direction: column;" >
+          <label for="operation"></label>
+          <select id="operation" name="operation" th:field="*{operation}" >
+              <option value="">Choose your operation</option>
+              <option value="add">+</option>
+              <option value="subtract">-</option>
+              <option value="multiply">*</option>
+              <option value="divide">/</option>
+          </select>
+      </div>
+
+
+      <div style = "display: flex;flex-direction: column;">
+          <div th:object ="${component.oper2}">
+              <div style = "display:flex;flex-direction: row">
+                  <div >X</div>
+                  <div >Y</div>
+              </div>
+              <div style="display:flex;flex-direction: row" th:each = "i: ${#numbers.sequence(0,component.oper2.getCount()-1,1)}">
+
+                  <div th:text = "${component.oper2.getX(i)}"></div>
+                  <div th:text = "${component.oper2.getY(i)}"></div>
+              </div>
+          </div>
+
+          <div style = "display: flex;flex-direction: column;">
+              <button name = "createSecondFuncTab">Create Tabulated</button>
+              <button name = "createSecondFuncMath">Create Math</button>
+              <button name = "saveSecondFunc">Save</button>
+              <button name = "insertSecondFuncMath">Insert</button>
+          </div>
+      </div>
+
+      <div th:object ="${component.result}">
+          <div style = "display:flex;flex-direction: row">
+              <div >X</div>
+              <div >Y</div>
+          </div>
+          <div style="display:flex;flex-direction: row" th:each = "i: ${#numbers.sequence(0,component.result.getCount()-1,1)}">
+
+              <div th:text = "${component.result.getX(i)}"></div>
+              <div th:text = "${component.result.getY(i)}"></div>
+          </div>
+      </div>
+
+      <button type="submit" name="submit">Perform</button>
+      <button name = "saveResultFunc">Save</button>
+
+
+  </form>-->
+
+<div id="fcont" class="container mt-3">
+    <h1 style="text-align: center">Calculator</h1>
+    <form th:action="@{/calculator}" method="post"
+          th:object="${component}">
+
+        <div id="thcont" class="container mt-4">
+
+            <div id="thcont_f">
+                <div id="thcont_f_b" th:object="${component.oper1}">
+                    <div style="display:flex; flex-direction: row; text-align:center">
+                        <div style="margin-left:5px" class="badge pill-rounded text-light">X</div>
+                        <div style="margin-left:15px" class="badge pill-rounded text-light">Y</div>
+                    </div>
+                    <div style="display:flex;flex-direction: row"
+                         th:each="i: ${#numbers.sequence(0,component.oper1.getCount()-1,1)}">
+                        <div style="margin-left:5px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.oper1.getX(i)}"></div>
+                        <div style="margin-left:5px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.oper1.getY(i)}"></div>
+                    </div>
+                </div>
+                <div id="thcont_f_d" style="margin-top:5px">
+                    <button class="btn" name="createFirstFuncTab"><span>Create Tabulated</span></button>
+                    <button class="btn" name="createFirstFuncMath">Create Math</button>
+                    <button class="btn" name="saveFirstFunc">Save</button>
+                    <button class="btn" name="insertFirstFuncMath">Insert</button>
+                </div>
+            </div>
+
+            <div id="sel">
+                <select id="operation" name="operation" th:field="*{operation}">
+                    <option value="">Choose your operation</option>
+                    <option value="add">+</option>
+                    <option value="subtract">-</option>
+                    <option value="multiply">*</option>
+                    <option value="divide">/</option>
+                </select>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <div th:object="${component.oper2}">
+                    <div style="display:flex;flex-direction: row; text-align:center">
+                        <div style="margin-left:5px" class="badge pill-rounded text-light">X</div>
+                        <div style="margin-left:15px" class="badge pill-rounded text-light">Y</div>
+                    </div>
+                    <div style="display:flex;flex-direction: row;text-align:center"
+                         th:each="i: ${#numbers.sequence(0,component.oper2.getCount()-1,1)}">
+
+                        <div style="margin-left:5px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.oper2.getX(i)}"></div>
+                        <div style="margin-left:5px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.oper2.getY(i)}"></div>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="btn" name="createSecondFuncTab">Create Tabulated</button>
+                    <button class="btn" name="createSecondFuncMath">Create Math</button>
+                    <button class="btn" name="saveSecondFunc">Save</button>
+                    <button class="btn" name="insertSecondFuncMath">Insert</button>
+                </div>
+            </div>
+            <div style="display:flex;">
+                <div style="margin-top:10px" th:object="${component.result}">
+                    <div style="display:flex;flex-direction: row">
+                        <div style="margin-left:5px" class="badge pill-rounded text-light">X_res</div>
+                        <div style="margin-left:5px" class="badge pill-rounded text-light">Y_res</div>
+                    </div>
+                    <div style="display:flex;flex-direction: row"
+                         th:each="i: ${#numbers.sequence(0,component.result.getCount()-1,1)}">
+
+                        <div style="margin-left:5px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.result.getX(i)}"></div>
+                        <div style="margin-left:15px;margin-top:4px" class="badge pill-rounded text-light"
+                             th:text="${component.result.getY(i)}"></div>
+                    </div>
+                    <div class="flex-btns">
+                        <button class="btn" type="submit" name="submit">
+                            Perform
+                        </button>
+                        <button class="btn" name="saveResultFunc">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

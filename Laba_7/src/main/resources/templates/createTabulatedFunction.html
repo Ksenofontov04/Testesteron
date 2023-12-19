@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/styles/ram/cyberpunk-2077.css}" rel="stylesheet"/>
+    <title>Create function</title>
+</head>
+<body>
+    <h1>Create Tabulated Function</h1>
+
+<form action="#" th:action="@{/createTabulatedFunction}" th:object="${tabulatedFunctionComponent}" method="post">
+        <div class="row">
+            <div class="first-container">
+                <div class="input-line">
+                    <div style="font-style:italic; font-weight:bold;">
+                        Amount:
+                    </div>
+                    <input type="number" th:field="*{amount}" required min="2" max="1000"/>
+                    <p style="width:200px" th:text="'Amount: ' + *{amount}"></p>
+
+                </div>
+                <div class="btn-col">
+                    <button class="btn" name="submit" type="submit">Submit</button>
+                    <button class="btn reset-btn" name="reset" type="submit">Reset</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- <p th:text="'Amount: ' + ${amountOfPointsComponent.amount}"></p> -->
+        <div class="cont" th:object="${point}">
+            <div class="container_l">
+                <div class="x">
+                    <p>X:</p>
+                    <input type="number" step="any" th:field="*{x}" required>
+                </div>
+                <div class="y">
+                    <p>Y:</p>
+                    <input type="number" step="any" th:field="*{y}" required>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn" name="add"
+                        type="submit" value="Add">Add</button>
+                <button class="create-btn btn" name="create" type="submit">Create</button>
+            </div>
+        </div>
+    <div class="notification">
+        <p th:text="${notification}"></p>
+        <p id="former" class="" th:text="${message}"></p>
+    </div>
+
+    <div class="cont-container">
+        <div class="cont_xy">
+            <span class="x-title">X</span>
+            <span class="y-title">Y</span>
+        </div>
+        <div class="cont_values" th:each = "pt: ${tabulatedFunctionComponent.pointList}">
+            <span class="x-value" th:text = "${pt.getX()}"></span>
+            <span class="y-value" th:text = "${pt.getY()}"></span>
+        </div>
+    </div>
+</form>
+</body>
+</html>
